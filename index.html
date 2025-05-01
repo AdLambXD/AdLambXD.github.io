@@ -11,7 +11,7 @@
 	<!-- Font-Awesome -->
     <link href="assets/font-awesome_6/css/all.css" rel="stylesheet">
   <!-- Lightbox -->
-  	<link href="assets/lightbox/css/lightbox.css" rel="stylesheet">
+  	<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
     <!-- Text Rotator-->
 	  <link href="assets/textrotator/simpletextrotator.css" rel="stylesheet">
 	<!-- FlexSlider -->
@@ -225,7 +225,9 @@
           <div class="col-md-3 col-sm-6">
               <div class="overlay-effect effects clearfix">
                   <div class="img">
-                      <a href="img/portfolio/portfolio-01-large.jpg" data-lightbox="roadtrip" title="Project One - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-01-thumbnail.jpg" alt="Portfolio Item"></a>
+                      <a href="img/portfolio/portfolio-01-large.jpg" data-lightbox="roadtrip" title="Project One - Lorem Ipsum">
+                        <img class="grayscale" data-src="https://cdn.example.com/img/portfolio/portfolio-01-thumbnail.jpg" src="img/portfolio/portfolio-01-thumbnail.jpg" alt="Portfolio Item">
+                      </a>
                   </div>
               </div>
           </div>
@@ -235,7 +237,9 @@
           <div class="col-md-3 col-sm-6">
               <div class="overlay-effect effects clearfix">
                   <div class="img">
-                      <a href="img/portfolio/portfolio-02-large.jpg" data-lightbox="roadtrip" title="Project Two - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-02-thumbnail.jpg" alt="Portfolio Item"></a>
+                      <a href="img/portfolio/portfolio-02-large.jpg" data-lightbox="roadtrip" title="Project Two - Lorem Ipsum">
+                        <img class="grayscale" data-src="https://cdn.example.com/img/portfolio/portfolio-02-thumbnail.jpg" src="img/portfolio/portfolio-02-thumbnail.jpg" alt="Portfolio Item">
+                      </a>
                   </div>
               </div>
           </div>
@@ -603,7 +607,7 @@
 	<!-- Text Rotator -->
 	  <script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
 	<!-- Lightbox.js -->
-    <script src="assets/lightbox/js/lightbox.min.js"></script>
+    <script src="	https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
 	<!-- Theme JavaScript Core -->
 	<script src="js/main.js"></script>
 	<script src="js/script.js"></script>
@@ -615,6 +619,27 @@
       separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
       speed: 2000 // How many milliseconds until the next word show.
     });
+    </script>
+
+    <!-- 图片加载优先使用CDN的JavaScript代码 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const images = document.querySelectorAll('img[data-src]');
+        images.forEach(img => {
+          const cdnSrc = img.getAttribute('data-src');
+          const localSrc = img.getAttribute('src');
+
+          // 检查CDN资源是否可用
+          const imgElement = new Image();
+          imgElement.onload = () => {
+            img.src = cdnSrc; // 如果CDN资源可用，替换为CDN路径
+          };
+          imgElement.onerror = () => {
+            img.src = localSrc; // 如果CDN资源不可用，回退到本地路径
+          };
+          imgElement.src = cdnSrc;
+        });
+      });
     </script>
 
     </body>
