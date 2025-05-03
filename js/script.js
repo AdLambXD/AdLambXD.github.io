@@ -49,6 +49,17 @@ $(window).load(function() {
 
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.getElementById('open-button');
+    const menuWrap = document.querySelector('.menu-wrap');
+
+    // 确保元素存在后再添加事件监听器
+    if (menuButton && menuWrap) {
+        menuButton.addEventListener('click', function() {
+            menuWrap.classList.toggle('active');
+        });
+    }
+});
 
 $(function() {
 
@@ -72,59 +83,72 @@ $(function() {
 Nav Transform
 *******************************************************************************************************************************/ 
 
-document.querySelector("#nav-toggle").addEventListener("click", function() {
-	this.classList.toggle("active");
-});
+// 修改：确保元素存在后再添加事件监听器
+const navToggle = document.querySelector("#nav-toggle");
+if (navToggle) {
+    navToggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+    });
+}
 
 /******************************************************************************************************************************
 Flexsliders
 *******************************************************************************************************************************/ 
 
 $(window).load(function() {
+    // 检查 #blogSlider 是否存在
+    if ($('#blogSlider').length) {
+        $('#blogSlider').flexslider({
+            animation: "slide",
+            directionNav: false,
+            controlNav: true,
+            touch: false,
+            pauseOnHover: true,
+            start: function() {
+                $.waypoints('refresh');
+            }
+        });
+    }
 
-	$('#blogSlider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav: true,
-		touch: false,
-		pauseOnHover: true,
-		start: function() {
-			$.waypoints('refresh');
-		}
-	});
+    // 检查 #servicesSlider 是否存在
+    if ($('#servicesSlider').length) {
+        $('#servicesSlider').flexslider({
+            animation: "slide",
+            directionNav: false,
+            controlNav: true,
+            touch: true,
+            pauseOnHover: true,
+            start: function() {
+                $.waypoints('refresh');
+            }
+        });
+    }
 
-	$('#servicesSlider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav: true,
-		touch: true,
-		pauseOnHover: true,
-		start: function() {
-			$.waypoints('refresh');
-		}
-	});
+    // 检查 #teamSlider 是否存在
+    if ($('#teamSlider').length) {
+        $('#teamSlider').flexslider({
+            animation: "slide",
+            directionNav: false,
+            controlNav: true,
+            touch: true,
+            pauseOnHover: true,
+            start: function() {
+                $.waypoints('refresh');
+            }
+        });
+    }
 
-	$('#teamSlider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav: true,
-		touch: true,
-		pauseOnHover: true,
-		start: function() {
-			$.waypoints('refresh');
-		}
-	});
-	
-		$('#clientSlider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav: true,
-		touch: true,
-		pauseOnHover: true,
-		start: function() {
-			$.waypoints('refresh');
-		}
-	});
-
+    // 检查 #clientSlider 是否存在
+    if ($('#clientSlider').length) {
+        $('#clientSlider').flexslider({
+            animation: "slide",
+            directionNav: false,
+            controlNav: true,
+            touch: true,
+            pauseOnHover: true,
+            start: function() {
+                $.waypoints('refresh');
+            }
+        });
+    }
 });
-

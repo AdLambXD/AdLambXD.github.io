@@ -1,7 +1,132 @@
-<h1>施工中</h1>
-<h2>施工中</h2>
-<h3>施工中</h3>
-<h4>施工中</h4>
-<h5>施工中</h5>
-<h6>施工中</h6>
-<a href="index.html">点击返回</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+
+        body {
+            min-block-size: 100%;
+            display: grid;
+            place-content: center;
+            /* 设置上下内边距为 30% 视口高度 */
+            padding-block: 30dvh;
+            background: #f7d6ff;
+        }
+
+        @keyframes slide-fade-in {
+            from {
+                opacity: 0;
+                box-shadow: none;
+                transform: scale(.8) translateY(15vh);
+            }
+        }
+
+        .cards {
+            display: grid;
+            gap: 2rem;
+            /* 自动排列 */
+            grid-auto-flow: dense;
+            grid-template-columns: repeat(4, 30ch);
+        }
+
+        .card {
+            animation: slide-fade-in both;
+            /* 使用浏览器的视图时间线,允许动画根据视口的变化进行同步 */
+            animation-timeline: view();
+            /* 定义动画时间范围 */
+            animation-range: contain 0% contain 50%;
+            border-radius: 10px;
+            line-height: 6;
+            box-shadow: 0px 8px 20px #00000022;
+            font-size: 32px;
+            letter-spacing: 5px;
+            color: #fff;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-image: linear-gradient(to bottom right,
+                    #91defe,
+                    #99c0f9,
+                    #bdb6ec,
+                    #d7b3e3,
+                    #efb3d5,
+                    #f9bccc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .card:nth-of-type(4n) {
+            grid-column: span 2;
+        }
+
+        .card:nth-of-type(5n) {
+            grid-column: span 2;
+        }
+
+        .card:nth-of-type(7n) {
+            grid-row: span 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cards">
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/9d8812ba131705ef.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/15e44e429d6c4293.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/b3e8883803bae5de.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/7325fa6b73b2e6e3.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/6c170635b932d074.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/b894cc987067e01c.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/9deded9b095a0f62.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/c7e7752602c03950.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/bca3f11ba50767cc.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/66f648ae690d47b7.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/b3ef29fc626926cd.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/84d75b6f1bea9050.jpg' /></div>
+        <div class="card"> <img src = 'https://s3.bmp.ovh/imgs/2025/05/03/4b47d7737145558c.jpg' /></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+        <div class="card"> <img src="./01.png"></div>
+    </div>
+</body>
+
+</html>

@@ -1,7 +1,183 @@
-<h1>施工中</h1>
-<h2>施工中</h2>
-<h3>施工中</h3>
-<h4>施工中</h4>
-<h5>施工中</h5>
-<h6>施工中</h6>
-<a href="index.html">点击返回</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdLamb - 一个业余摄影师的个人网站</title>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/font-awesome_6/css/all.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        /* 修改：将图片网格改为按列排列 */
+        #photo-grid {
+            display: flex;
+            flex-direction: row; /* 修改为行排列 */
+            gap: 20px; /* 列间距 */
+        }
+        .photo-column {
+            display: flex;
+            flex-direction: column;
+            flex: 1; /* 确保每列宽度均匀 */
+            gap: 20px; /* 图片间距 */
+        }
+        .photo-item {
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .photo-item a {
+            display: block;
+        }
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease; /* 添加过渡效果 */
+        }
+        .photo-item img:hover {
+            transform: scale(1.1); /* 悬停时放大1.1倍 */
+        }
+    </style>
+</head>
+<body id="top">
+    <div id="preloader"></div>
+
+    <header id="home">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="menu-wrap">
+                    <nav class="menu">
+                        <div class="icon-list">
+                            <a href="index.html#home"><i class="fa-solid fa-home"></i><span>主页</span></a>
+                            <a href="index.html#about"><i class="fa-solid fa-quote-left"></i><span>关于</span></a>
+                            <a href="index.html#service"><i class="fa-solid fa-globe"></i><span>工作</span></a>
+                            <a href="index.html#portfolio"><i class="fa-solid fa-image"></i><span>照片</span></a>
+                            <a href="index.html#blog"><i class="fa-solid fa-rss"></i><span>博客</span></a>
+                            <a href="index.html#contact"><i class="fa-solid fa-phone"></i><span>联系</span></a>
+                        </div>
+                    </nav>
+                </div>
+                <button class="menu-button" id="open-button"></button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero section-padding color-bg" id="gallery">
+        <div class="container">
+            <h1 class="arrow text-center wow fadeInDown">我的<span>摄影</span>作品</h1>
+            
+            <div class="row gallery" id="photo-grid">
+                <!-- 图片网格将由JavaScript动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/smoothscroll/1.5.1/SmoothScroll.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+
+    <script>
+        // 新增：根据屏幕大小自动设置列数
+        function getColumnsCount() {
+            const width = window.innerWidth;
+            if (width >= 1200) return 3; // 大屏幕
+            if (width >= 768) return 2; // 中等屏幕
+            return 1; // 小屏幕
+        }
+
+        function updateGrid() {
+          const gridData = [
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/9d8812ba131705ef.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/15e44e429d6c4293.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/b3e8883803bae5de.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/7325fa6b73b2e6e3.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/6c170635b932d074.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/b894cc987067e01c.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/9deded9b095a0f62.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/c7e7752602c03950.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/bca3f11ba50767cc.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/66f648ae690d47b7.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/b3ef29fc626926cd.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/84d75b6f1bea9050.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/4b47d7737145558c.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/ac3170460f8e1f5e.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/c6648b41dce91b5e.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/40ea13eeace87db3.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/028c389c4e7ad6f2.jpg", title: "风景" },
+    { src: "https://s3.bmp.ovh/imgs/2025/05/03/9923f3b7b5989ecc.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598cbbd2e5.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598cbaaedf.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598cb433b5.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598ca997df.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598d086ee9.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/6815991b68506.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/6815991767e55.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598d2bc924.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598d273ff0.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598d1b735f.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/6815991c0fb3d.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598d0e44c1.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/681598caecc5f.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/68159924e6cf9.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/6815992415b73.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/68159922bbc31.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/68159921ce141.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/6815991e8a2fc.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/6815991da8e31.jpg", title: "风景" },
+    { src: "https://img.picui.cn/free/2025/05/03/6815991d117fd.jpg", title: "风景" }
+];
+
+            const photoGrid = document.getElementById("photo-grid");
+            if (photoGrid) {
+                // 清空现有内容
+                photoGrid.innerHTML = '';
+
+                // 获取列数
+                const columnsCount = getColumnsCount();
+                const columns = Array.from({ length: columnsCount }, () => document.createElement("div"));
+                columns.forEach(column => {
+                    column.className = "photo-column";
+                });
+
+                // 将图片分配到各列
+                gridData.forEach((photo, index) => {
+                    const gridItem = document.createElement("div");
+                    gridItem.className = "photo-item";
+                    gridItem.innerHTML = `
+                        <a href="${photo.src}" data-lightbox="gallery" data-title="${photo.title}" class="overlay-effect effects clearfix">
+                            <img class="img-responsive" src="${photo.src}">
+                        </a>
+                    `;
+                    columns[index % columnsCount].appendChild(gridItem);
+                });
+
+                // 将各列添加到网格中
+                columns.forEach(column => {
+                    photoGrid.appendChild(column);
+                });
+            } else {
+                console.error('Photo grid element not found');
+            }
+        }
+
+        // 初始化网格
+        updateGrid();
+
+        // 监听窗口大小变化
+        window.addEventListener('resize', updateGrid);
+    </script>
+</body>
+</html>
