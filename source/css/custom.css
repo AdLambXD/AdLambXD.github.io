@@ -62,14 +62,22 @@ html[data-theme='dark'] body {
 /* ---------- 顶部导航 ---------- */
 
 #nav {
+  background: transparent !important;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#page-header.nav-fixed #nav,
+#page-header.not-top-img #nav {
   background: rgba(255, 255, 255, 0.72) !important;
   backdrop-filter: blur(14px) saturate(1.5);
   -webkit-backdrop-filter: blur(14px) saturate(1.5);
-  border-bottom: 1px solid var(--adl-border);
+  border-bottom-color: var(--adl-border);
   box-shadow: 0 4px 20px rgba(43, 26, 99, 0.05);
 }
 
-html[data-theme='dark'] #nav {
+html[data-theme='dark'] #page-header.nav-fixed #nav,
+html[data-theme='dark'] #page-header.not-top-img #nav {
   background: rgba(20, 20, 28, 0.72) !important;
 }
 
@@ -88,12 +96,19 @@ html[data-theme='dark'] #nav {
   transition: background 0.25s ease, color 0.25s ease;
 }
 
-#nav #menus .site-page:hover {
+#page-header:not(.nav-fixed):not(.not-top-img) #nav #menus .site-page:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff !important;
+}
+
+#page-header.nav-fixed #nav #menus .site-page:hover,
+#page-header.not-top-img #nav #menus .site-page:hover {
   background: rgba(124, 92, 255, 0.1);
   color: var(--adl-primary-deep) !important;
 }
 
-html[data-theme='dark'] #nav #menus .site-page:hover {
+html[data-theme='dark'] #page-header.nav-fixed #nav #menus .site-page:hover,
+html[data-theme='dark'] #page-header.not-top-img #nav #menus .site-page:hover {
   background: rgba(139, 112, 255, 0.16);
   color: #c4b5fd !important;
 }
@@ -110,9 +125,23 @@ html[data-theme='dark'] #nav #menus .site-page:hover {
   text-shadow: none;
 }
 
+/* 首页大图高度：让首屏能看到一点文章卡片 */
+#page-header.full_page {
+  height: 84vh;
+  min-height: 560px;
+}
+
 #page-header #site-subtitle {
   color: rgba(255, 255, 255, 0.82);
   letter-spacing: 0.08em;
+}
+
+/* 避免部分环境下入场动画被节流导致标题不可见 */
+#page-header #site-title,
+#page-header #site-subtitle {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 #page-header #scroll-down .scroll-down-effects {
@@ -654,6 +683,11 @@ html[data-theme='dark'] .game-tag {
 @media (max-width: 768px) {
   :root {
     --adl-radius: 16px;
+  }
+
+  #page-header.full_page {
+    height: 78vh;
+    min-height: 460px;
   }
 
   #article-container {

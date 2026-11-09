@@ -150,6 +150,7 @@ post_meta:
 # The position of site info, eg: 300px/300em/300rem/10%
 index_site_info_top:
 # The height of top_img, eg: 300px/300em/300rem
+# 首页高度在 source/css/custom.css 中单独调整
 index_top_img_height:
 
 # The subtitle on homepage
@@ -1101,6 +1102,8 @@ CDN:
   custom_format:
 
   option:
+    # 本地托管 FontAwesome，避免 CDN 不可用导致图标消失
+    fontawesome: /fontawesome/css/all.min.css
     # abcjs_basic_js:
     # activate_power_mode:
     # algolia_js:
