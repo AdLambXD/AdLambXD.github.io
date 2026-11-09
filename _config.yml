@@ -86,7 +86,3 @@ marked:
 
 # 主题
 theme: butterfly
-
-# 部署（推荐使用 GitHub Actions，见 README）
-deploy:
-  type: ''
