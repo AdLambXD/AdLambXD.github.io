@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="0.55" stop-color="#5b8cff"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="96" fill="url(#bg)"/>
+  <circle cx="320" cy="80" r="110" fill="#ffffff" opacity="0.12"/>
+  <circle cx="60" cy="340" r="130" fill="#ffffff" opacity="0.10"/>
+  <path d="M0 250 Q100 190 200 250 T400 250 L400 400 L0 400 Z" fill="url(#shine)" opacity="0.55"/>
+  <text x="200" y="238" text-anchor="middle" font-family="'Segoe UI', 'PingFang SC', sans-serif" font-size="150" font-weight="800" fill="#ffffff" letter-spacing="4">AL</text>
+  <circle cx="330" cy="330" r="9" fill="#ffffff" opacity="0.9"/>
+  <circle cx="70" cy="80" r="6" fill="#ffffff" opacity="0.7"/>
+  <circle cx="352" cy="190" r="4" fill="#ffffff" opacity="0.6"/>
+</svg>

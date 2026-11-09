@@ -1,0 +1,30 @@
+{
+  "name": "adlambxd-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AdLam 的个人博客与作品集网站",
+  "scripts": {
+    "start": "hexo server",
+    "clean": "hexo clean",
+    "build": "hexo generate",
+    "deploy": "hexo deploy"
+  },
+  "hexo": {
+    "version": "7.3.0"
+  },
+  "dependencies": {
+    "hexo": "^7.3.0",
+    "hexo-deployer-git": "^4.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^3.0.0",
+    "hexo-generator-searchdb": "^1.4.1",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-pug": "^3.0.0",
+    "hexo-renderer-stylus": "^3.0.0",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-butterfly": "^5.3.5"
+  },
+  "devDependencies": {}
+}
