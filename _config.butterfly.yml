@@ -19,10 +19,10 @@ nav:
 
 menu:
   首页: / || fas fa-home
-  博客: /archives/ || fas fa-archive
+  博客: /archives/ || fas fa-pen-nib
   分类: /categories/ || fas fa-folder-open
-  标签: /tags/ || fas fa-tags
-  作品集: /portfolio/ || fas fa-code
+  照片: /photos/ || fas fa-camera
+  项目: /projects/ || fas fa-code
   游戏: /games/ || fas fa-gamepad
   关于: /about/ || fas fa-user
 
@@ -49,33 +49,37 @@ code_blocks:
 # Formal:
 #   icon: link || the description || color
 social:
-  fab fa-github: https://github.com/adlambxd || GitHub || '#24292e'
-  fas fa-envelope: mailto:your-email@example.com || Email || '#7c5cff'
+  fab fa-github: https://github.com/AdLambXD || GitHub || '#1a1815'
+  fas fa-envelope: mailto:AdLamb114514@outlook.com || Email || '#c8462b'
+  fab fa-bilibili: https://space.bilibili.com/3494372188359326 || Bilibili || '#00a1d6'
+  fab fa-steam: https://steamcommunity.com/id/AdLambXD/ || Steam || '#1b2838'
+  fab fa-qq: https://qm.qq.com/q/UdrgXNv7yK || QQ || '#12b7f5'
+  fas fa-music: https://music.163.com/#/user/home?id=8658571437 || 网易云 || '#c8462b'
 
 # --------------------------------------
 # Image Settings
 # --------------------------------------
 
-favicon: /images/avatar.svg
+favicon: /images/favicon.ico
 
 avatar:
-  img: /images/avatar.svg
-  effect: true
+  img: /images/avatar.jpg
+  effect: false
 
 # Disable all banner images
 disable_top_img: false
 
 # If the banner of page not setting, it will show the default_top_img
-default_top_img: /images/banner.svg
+default_top_img: /images/photos/landscape-07.jpg
 
 # The banner image of index page
-index_img: /images/banner.svg
+index_img: /images/photos/landscape-07.jpg
 
 # The banner image of archive page
-archive_img: /images/cover-1.svg
+archive_img: /images/photos/landscape-02.jpg
 
 # Note: tag page, not tags page
-tag_img: /images/cover-2.svg
+tag_img: /images/photos/landscape-09.jpg
 
 # The banner image of tag page, you can set the banner image for each tag
 # Format:
@@ -83,7 +87,7 @@ tag_img: /images/cover-2.svg
 tag_per_img:
 
 # Note: category page, not categories page
-category_img: /images/cover-3.svg
+category_img: /images/photos/landscape-10.jpg
 
 # The banner image of category page, you can set the banner image for each category
 # Format:
@@ -105,9 +109,12 @@ cover:
   archives_enable: true
   # When cover is not set, the default cover is displayed
   default_cover:
-    - /images/cover-1.svg
-    - /images/cover-2.svg
-    - /images/cover-3.svg
+    - /images/photos/landscape-02.jpg
+    - /images/photos/landscape-07.jpg
+    - /images/photos/landscape-09.jpg
+    - /images/photos/landscape-10.jpg
+    - /images/photos/landscape-14.jpg
+    - /images/photos/landscape-15.jpg
 
 # Replace Broken Images
 error_img:
@@ -117,8 +124,8 @@ error_img:
 # A simple 404 page
 error_404:
   enable: true
-  subtitle: '页面走丢了，要不要回首页看看？'
-  background: /images/cover-3.svg
+  subtitle: '这个页面不存在。'
+  background: /images/photos/landscape-02.jpg
 
 post_meta:
   # Home Page
@@ -171,9 +178,9 @@ subtitle:
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
   sub:
-    - 写代码，也写生活
-    - 偶尔聊聊游戏
-    - 把喜欢的东西都放进来
+    - 写前端，也写 Minecraft 插件
+    - 偶尔带着相机出门
+    - CubeX 服务器服主
 
 # Article layout on the homepage
 # 1: Cover on the left, info on the right
@@ -191,9 +198,9 @@ index_layout: 4
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
 index_post_content:
-  method: 3
+  method: 2
   # If you set method to 2 or 3, the length need to config
-  length: 160
+  length: 120
 
 # --------------------------------------
 # Post Settings
@@ -268,12 +275,12 @@ footer:
   nav:
   owner:
     enable: true
-    since: 2026
+    since: 2024
   # Copyright of theme and framework
   copyright:
     enable: true
     version: true
-  custom_text: 保持热爱，奔赴山海
+  custom_text: 用 Hexo 搭的，源码在 GitHub
 
 # --------------------------------------
 # Aside Settings
@@ -293,15 +300,15 @@ aside:
     category: true
   card_author:
     enable: true
-    description: 写代码，也写生活。
+    description: 前端 / Minecraft 插件 / 摄影
     button:
       enable: true
       icon: fab fa-github
       text: GitHub
-      link: https://github.com/adlambxd
+      link: https://github.com/AdLambXD
   card_announcement:
     enable: true
-    content: 👋 欢迎来到我的小站，随便逛逛吧～
+    content: 最近在做 4link、HammrEnhance 和 CubeX。
   card_recent_post:
     enable: true
     # If set 0 will show all
@@ -361,7 +368,7 @@ aside:
     # Time difference between publish date and now
     # Formal: Month/Day/Year Time or Year/Month/Day Time
     # Leave it empty if you don't enable this feature
-    runtime_date: 2026/11/09 00:00:00
+    runtime_date: 2024/09/16 00:00:00
 
 # --------------------------------------
 # Bottom right button
@@ -651,7 +658,7 @@ twikoo:
 # https://giscus.app/
 # 使用前请到 https://giscus.app/ 获取 repo_id / category_id 并填入下方
 giscus:
-  repo: adlambxd/adlambxd.github.io
+  repo: AdLambXD/AdLambXD.github.io
   repo_id:
   category_id:
   light_theme: light
@@ -1080,9 +1087,9 @@ css_prefix: true
 inject:
   head:
     - <link rel="stylesheet" href="/css/custom.css">
-    - <meta name="theme-color" content="#7c5cff">
+    - <meta name="theme-color" content="#c8462b">
   bottom:
-    # - <script src="xxxx"></script>
+    - <script src="/js/photo-lightbox.js" defer></script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work

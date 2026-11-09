@@ -2,11 +2,11 @@
 # 文档: https://hexo.io/docs/configuration.html
 
 # 站点信息
-title: AdLam
-subtitle: '代码 · 生活 · 游戏'
-description: '记录技术、生活与热爱的个人小站'
-keywords: 技术笔记, 生活日记, 游戏, 作品集, AdLam
-author: AdLam
+title: AdLamb
+subtitle: '前端 / Minecraft 插件 / 摄影'
+description: 'AdLamb 的个人网站：前端开发、Minecraft 插件，以及随手拍的照片。'
+keywords: 前端开发, Minecraft, Paper, Folia, 摄影, AdLamb, 4link, CubeX
+author: AdLamb
 language: zh-CN
 timezone: 'Asia/Shanghai'
 

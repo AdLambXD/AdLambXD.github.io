@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>写作台 · AdLamb</title>
+  <link rel="stylesheet" href="/writer.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <button class="menu-btn" id="menuBtn" type="button" title="文章列表">☰</button>
+      <span class="brand-mark">A</span>
+      <span class="brand-name">AdLamb 写作台</span>
+      <span class="brand-sep">/</span>
+      <span class="brand-sub">source/_posts</span>
+    </div>
+    <div class="top-actions">
+      <span class="server-status" id="serverStatus"><i class="dot"></i>检查预览服务…</span>
+      <a class="ghost-link" href="http://localhost:4000/" target="_blank" rel="noopener">打开站点 ↗</a>
+      <button class="primary" id="saveBtn">保存 <kbd>Ctrl S</kbd></button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <button class="new-btn" id="newBtn"><span>＋</span> 新建文章</button>
+      <input class="search" id="search" type="search" placeholder="搜索标题或标签">
+      <div class="post-list" id="postList"></div>
+      <div class="sidebar-foot">
+        <p>文章保存后，Hexo 会自动刷新预览。</p>
+        <p>图片放在 <code>source/images/posts</code>。</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="editor-head">
+        <input class="title-input" id="title" type="text" placeholder="文章标题" autocomplete="off">
+        <div class="editor-head-right">
+          <span class="save-state" id="saveState">未保存</span>
+          <a class="view-link" id="viewLink" href="#" target="_blank" rel="noopener" hidden>查看文章 →</a>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <label class="field">
+          <span>发布时间</span>
+          <input id="date" type="datetime-local">
+        </label>
+        <label class="field">
+          <span>分类</span>
+          <input id="category" list="categoryOptions" placeholder="技术笔记">
+          <datalist id="categoryOptions">
+            <option value="技术笔记"></option>
+            <option value="开发日志"></option>
+            <option value="游戏"></option>
+            <option value="摄影"></option>
+            <option value="随笔"></option>
+          </datalist>
+        </label>
+        <label class="field">
+          <span>标签（逗号分隔）</span>
+          <input id="tags" placeholder="Hexo, Minecraft">
+        </label>
+        <label class="field">
+          <span>链接别名（文件名）</span>
+          <input id="slug" placeholder="my-post">
+        </label>
+        <label class="field field-wide">
+          <span>摘要（可选，显示在首页卡片）</span>
+          <input id="description" placeholder="一句话说明这篇文章">
+        </label>
+        <label class="field field-wide">
+          <span>封面图（可选，URL 或 /images/...）</span>
+          <span class="cover-row">
+            <input id="cover" placeholder="/images/photos/landscape-07.jpg">
+            <button class="mini" id="coverBtn" type="button">上传</button>
+            <img class="cover-preview" id="coverPreview" alt="" hidden>
+          </span>
+        </label>
+      </div>
+
+      <div class="body-wrap" id="bodyWrap">
+        <div class="editor-pane">
+          <div class="toolbar" id="toolbar">
+            <button type="button" data-action="h2" title="二级标题">H2</button>
+            <button type="button" data-action="bold" title="加粗"><strong>B</strong></button>
+            <button type="button" data-action="italic" title="斜体"><em>I</em></button>
+            <button type="button" data-action="link" title="链接">链接</button>
+            <button type="button" data-action="code" title="行内代码">&lt;/&gt;</button>
+            <button type="button" data-action="quote" title="引用">引用</button>
+            <button type="button" data-action="list" title="列表">列表</button>
+            <span class="toolbar-spacer"></span>
+            <button type="button" id="imageBtn" title="上传图片">插入图片</button>
+            <button type="button" id="previewToggle" class="preview-toggle" title="切换预览">预览</button>
+          </div>
+          <textarea id="body" spellcheck="false" placeholder="开始写吧。支持 Markdown。"></textarea>
+        </div>
+        <div class="preview-pane">
+          <div class="preview-head">
+            <span>预览</span>
+            <span class="preview-hint">保存后可在站点查看最终效果</span>
+          </div>
+          <article class="preview" id="preview"><p class="preview-empty">这里会显示 Markdown 预览。</p></article>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <input type="file" id="inlineImage" accept="image/*" hidden>
+  <input type="file" id="coverImage" accept="image/*" hidden>
+  <script src="/writer.js"></script>
+</body>
+</html>

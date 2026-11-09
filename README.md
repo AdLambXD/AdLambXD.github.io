@@ -1,18 +1,6 @@
-# AdLam 的个人网站
+# AdLamb 的个人网站
 
-一个使用 **Hexo + Butterfly** 构建的个人博客与作品集网站，托管在 GitHub Pages 上。
-
-
-## 功能
-
-- 技术笔记、生活日记、游戏三类文章（分类 + 标签）
-- 本地搜索
-- 亮色 / 暗色主题切换（默认亮色）
-- 作品集页面、游戏专区、关于页
-- Giscus 评论（需要手动填入配置）
-- 响应式布局，适配手机
-- 个性化配色与卡片样式
-
+前端、Minecraft 插件和一些照片。使用 **Hexo + Butterfly** 构建，部署在 GitHub Pages。
 
 ## 本地运行
 
@@ -23,184 +11,151 @@ npm install
 npm run start
 ```
 
-打开 <http://localhost:4000> 预览。修改文件后刷新页面即可，无需重启。
+打开 <http://localhost:4000>。
 
+## 写文章
 
-## 写一篇新文章
+### 方式一：写作台（推荐）
+
+```bash
+npm run write
+```
+
+会自动打开 <http://127.0.0.1:4321/>，并在需要时启动 4000 端口的预览服务。
+
+写作台可以：
+
+- 新建、编辑 `source/_posts` 里的文章
+- 填写标题、日期、分类、标签、摘要、封面
+- 上传图片（自动存到 `source/images/posts/`，并插入 Markdown）
+- 实时预览 Markdown
+- `Ctrl + S` 保存
+
+保存后 Hexo 会自动刷新预览。写作台只监听本机，不要把它暴露到公网。
+
+### 方式二：命令行
 
 ```bash
 npx hexo new "文章标题"
 ```
 
-文件会生成在 `source/_posts/` 下。在文件开头填写分类和标签：
+在生成的文件头填写：
 
 ```yaml
 ---
 title: 文章标题
-date: 2026-11-09 20:00:00
+date: "2026-11-09 20:00:00"
 categories:
-  - 技术笔记       # 可选：技术笔记 / 生活日记 / 游戏
+  - 开发日志
 tags:
-  - Hexo
-  - 教程
-description: 一句话摘要，会显示在首页卡片上
+  - Minecraft
+  - Paper
+description: 一句话摘要，会显示在首页
+cover: /images/photos/landscape-07.jpg
 ---
 ```
 
-正文使用 Markdown 编写。`<!-- more -->` 之前的内容会作为首页摘要。
+日期建议加引号，避免时区转换。正文用 Markdown 写，`<!-- more -->` 之前的内容会作为摘要。
 
-### 文章图片
+### 方式三：在浏览器里写
 
-本项目开启了 `post_asset_folder`，新建文章时会同时生成同名文件夹：
+在 GitHub 仓库页面按 `.`，会打开 github.dev 的网页版 VS Code。新建 `source/_posts/文章名.md`，复制上面的模板，写完提交即可。GitHub Actions 会自动构建发布。
 
-```
-source/_posts/
-├── 我的文章.md
-└── 我的文章/
-    └── screenshot.png
-```
-
-在文章中这样引用：
-
-```markdown
-![截图](screenshot.png)
-```
-
-
-## 需要改成你自己的内容
-
-| 内容 | 位置 |
-| --- | --- |
-| 站点标题、副标题、描述、网址 | `_config.yml` |
-| 头像 | `source/images/avatar.svg`（替换文件即可） |
-| 首页大图 | `source/images/banner.svg` |
-| 文章默认封面 | `source/images/cover-1/2/3.svg` |
-| 社交链接、侧边栏文案、导航 | `_config.butterfly.yml` |
-| 关于页 | `source/about/index.md` |
-| 作品集 | `source/portfolio/index.md` |
-| 游戏页 | `source/games/index.md` |
-| 自定义样式 | `source/css/custom.css` |
-
-> 建议先把 `_config.yml` 里的 `url` 改成你自己的地址，并把 `_config.butterfly.yml` 里的邮箱地址换成真实的。
-
-### 换成自己的图片
-
-直接把 `source/images/` 下的 SVG 替换成同名的 JPG / PNG 也可以，但需要同步修改配置中的路径，例如：
-
-```yaml
-avatar:
-  img: /images/avatar.jpg
-```
-
-
-## 开启评论（Giscus）
-
-评论基于 GitHub Discussions，免费且无需服务器。
-
-1. 把仓库设为 **Public**。
-2. 在仓库 **Settings → General → Features** 中勾选 **Discussions**。
-3. 安装 [giscus App](https://github.com/apps/giscus) 并授权该仓库。
-4. 打开 <https://giscus.app/zh-CN>，填入仓库名 `你的用户名/仓库名`，选择 Discussion 分类。
-5. 页面会生成 `data-repo-id` 和 `data-category-id`，填入 `_config.butterfly.yml`：
-
-```yaml
-giscus:
-  repo: 你的用户名/仓库名
-  repo_id: 生成的 repo-id
-  category_id: 生成的 category-id
-```
-
-未填写之前，评论区不会显示，其余功能不受影响。
-
-
-## 部署到 GitHub Pages
-
-### 方式一：GitHub Actions（推荐）
-
-1. 在 GitHub 新建仓库，名字必须是 `你的用户名.github.io`（例如 `adlambxd.github.io`）。
-2. 把本项目推送到 `main` 分支：
-
-```bash
-git init
-git add .
-git commit -m "init: personal website"
-git branch -M main
-git remote add origin https://github.com/你的用户名/你的用户名.github.io.git
-git push -u origin main
-```
-
-3. 打开仓库 **Settings → Pages**，把 **Build and deployment → Source** 设为 **GitHub Actions**。
-4. 推送后 Actions 会自动构建并发布，地址为 `https://你的用户名.github.io/`。
-
-以后每次修改内容，只需要：
-
-```bash
-git add .
-git commit -m "post: 新文章"
-git push
-```
-
-### 方式二：本地生成后部署（可选）
-
-```bash
-npm run clean
-npm run build
-```
-
-把 `public/` 目录发布到任意静态托管服务即可。
-
-### 绑定自己的域名（可选）
-
-在仓库 `Settings → Pages → Custom domain` 填写域名，并在域名服务商处添加一条 CNAME 记录指向 `你的用户名.github.io`。
-
-
-## 目录结构
+## 目录
 
 ```
 .
 ├── _config.yml               # Hexo 站点配置
-├── _config.butterfly.yml     # Butterfly 主题配置
-├── package.json
-├── .github/workflows/pages.yml
+├── _config.butterfly.yml     # 主题配置
+├── tools/
+│   ├── write.mjs             # 本地写作台
+│   └── writer/               # 写作台界面
 ├── source/
 │   ├── _posts/               # 文章
-│   ├── about/                # 关于页
-│   ├── portfolio/            # 作品集
-│   ├── games/                # 游戏专区
+│   ├── about/                # 关于
+│   ├── projects/             # 项目
+│   ├── photos/               # 照片墙
+│   ├── games/                # Minecraft / 游戏
 │   ├── categories/           # 分类页
 │   ├── tags/                 # 标签页
 │   ├── css/custom.css        # 自定义样式
-│   └── images/               # 头像、横幅、封面
-└── public/                   # 构建产物（不提交）
+│   ├── js/photo-lightbox.js  # 照片灯箱
+│   └── images/               # 头像、照片、封面
+└── .github/workflows/pages.yml
 ```
 
+## 改成自己的内容
+
+| 内容 | 位置 |
+| --- | --- |
+| 站点标题、描述、网址 | `_config.yml` |
+| 头像 | `source/images/avatar.jpg` |
+| 首页大图、各页横幅 | `_config.butterfly.yml` 的 `index_img` / `archive_img` 等 |
+| 社交链接、侧边栏文案 | `_config.butterfly.yml` 的 `social`、`aside` |
+| 关于页 | `source/about/index.md` |
+| 项目页 | `source/projects/index.md` |
+| 照片页 | `source/photos/index.md` + `source/images/photos/` |
+| 游戏页 | `source/games/index.md` |
+| 导航菜单 | `_config.butterfly.yml` 的 `menu` |
+| 自定义样式 | `source/css/custom.css` |
+
+照片页直接写 HTML：
+
+```html
+<a class="photo-item" href="/images/photos/landscape-02.jpg">
+  <img src="/images/photos/thumb-02.jpg" alt="雪后" loading="lazy">
+  <span>雪后</span>
+</a>
+```
+
+灯箱脚本已经通过 `_config.butterfly.yml` 的 `inject.bottom` 全局引入。
+
+## 开启评论
+
+评论用 Giscus，基于 GitHub Discussions，不需要服务器。
+
+1. 仓库设为 Public。
+2. 在 **Settings → General → Features** 打开 **Discussions**。
+3. 安装 [giscus App](https://github.com/apps/giscus) 并授权仓库。
+4. 到 <https://giscus.app/zh-CN> 填仓库名，拿到 `repo_id` 和 `category_id`。
+5. 填入 `_config.butterfly.yml` 的 `giscus`。
+
+没配置之前评论区不会显示，其他功能不受影响。
+
+## 部署
+
+仓库是 [AdLambXD/AdLambXD.github.io](https://github.com/AdLambXD/AdLambXD.github.io)。
+
+```bash
+git add .
+git commit -m "更新内容"
+git push
+```
+
+然后在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。之后每次推送到 `main`，Actions 会自动构建并发布到 <https://adlambxd.github.io/>。
+
+旧站完整保留在仓库的 `old` 分支。如果要临时回到旧站，把 Pages 的来源改回 `old` 分支即可。
+
+### 自定义域名
+
+旧站曾经用过 `www.adlamb.top`。如果还想用这个域名：
+
+1. 在 `source/` 下新建 `CNAME` 文件，内容写 `www.adlamb.top`。
+2. 在域名服务商处添加 CNAME 记录，指向 `adlambxd.github.io`。
+3. 在 GitHub 仓库 **Settings → Pages → Custom domain** 填写域名。
 
 ## 常用命令
 
 | 命令 | 作用 |
 | --- | --- |
 | `npm run start` | 本地预览 |
+| `npm run write` | 打开写作台 |
 | `npm run clean` | 清理缓存和产物 |
 | `npm run build` | 生成静态文件到 `public/` |
 | `npx hexo new "标题"` | 新建文章 |
-| `npx hexo new page "页面名"` | 新建页面 |
 
+## 说明
 
-## 常见问题
-
-**中文搜索没有结果？**
-确认 `_config.yml` 中存在 `search:` 配置，且 `_config.butterfly.yml` 中 `search.use` 为 `local_search`。修改后需要重新生成。
-
-**修改主题配置不生效？**
-主题读取的是根目录的 `_config.butterfly.yml`，不是 `node_modules` 里的文件。
-
-**文章图片不显示？**
-图片要放在与文章同名的资源文件夹中，并使用相对路径引用；路径区分大小写。
-
-**评论不显示？**
-参考上面的 Giscus 步骤，确认 `repo_id`、`category_id` 已填写，且仓库已开启 Discussions。
-
-
-## 许可
-
-网站内容版权归作者所有；主题与框架遵循各自的开源许可。
+- 旧站的照片已经下载、压缩并放进仓库，不再依赖外链图床。
+- 文章日期建议写成带引号的字符串，例如 `"2026-11-09 20:00:00"`。
+- 部署到 GitHub Actions 后，仓库根目录的旧站文件不会影响新站，构建只上传 `public/`。

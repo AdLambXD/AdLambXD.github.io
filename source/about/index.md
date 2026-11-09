@@ -1,54 +1,53 @@
 ---
-title: 关于我
+title: 关于
 date: 2026-11-09 10:00:00
 type: about
-top_img: /images/cover-2.svg
+top_img: /images/photos/landscape-09.jpg
 comments: false
 ---
 
 <div class="about-hero">
-  <div class="about-hero-text">
-    <p class="about-hi">你好，我是 <strong>AdLam</strong> 👋</p>
-    <p>一个喜欢写代码、也喜欢记录生活的普通人。白天和代码打交道，晚上可能会在游戏里迷路，或者对着屏幕发呆想下一篇要写什么。</p>
-    <p>这个网站是我的数字小屋，用来存放技术笔记、生活碎片和一些喜欢的东西。</p>
-  </div>
+  <p class="about-hi">我是 <strong>AdLamb</strong>。</p>
+  <p>白天写前端，晚上给 Minecraft 服务器写插件。主要和 Paper / Folia 打交道，也做一些网页和 TypeScript 的小东西。</p>
+  <p>不写代码的时候，会带着相机在青岛到处走，或者回 CubeX 服里转一圈。</p>
 </div>
 
-## 我在做什么
+## 在做的事
 
 <div class="project-grid">
   <div class="project-card">
-    <div class="project-emoji">💻</div>
-    <h3>写代码</h3>
-    <p>对 Web 开发、工具链和一切能让生活更高效的东西感兴趣。</p>
+    <span class="project-index">01 / WEB</span>
+    <h3>前端开发</h3>
+    <p>HTML、CSS、JavaScript、TypeScript，用过 Vue 和 React。喜欢把交互和细节做顺。</p>
   </div>
   <div class="project-card">
-    <div class="project-emoji">✍️</div>
-    <h3>写东西</h3>
-    <p>把学到的东西整理成文章，也记录一些没什么用但很开心的日常。</p>
+    <span class="project-index">02 / MINECRAFT</span>
+    <h3>服务器插件</h3>
+    <p>Java + Paper / Folia。写玩法、写系统，也负责 CubeX 服务器上的一些插件维护。</p>
   </div>
   <div class="project-card">
-    <div class="project-emoji">🎮</div>
-    <h3>玩游戏</h3>
-    <p>偏爱有想法的独立游戏，偶尔写点评测和攻略。</p>
+    <span class="project-index">03 / PHOTO</span>
+    <h3>拍照</h3>
+    <p>没有固定的题材，看到什么拍什么。旧站的照片都搬到[照片页](/photos/)了。</p>
   </div>
 </div>
 
-## 技能与工具
+## 常用的东西
 
 <div class="skill-tags">
+  <span>Java</span>
+  <span>Paper</span>
+  <span>Folia</span>
   <span>JavaScript</span>
   <span>TypeScript</span>
+  <span>Vue</span>
   <span>React</span>
-  <span>Node.js</span>
-  <span>Python</span>
   <span>HTML / CSS</span>
+  <span>Gradle</span>
   <span>Git</span>
-  <span>Linux</span>
-  <span>Markdown</span>
+  <span>AIDE</span>
+  <span>Termux</span>
 </div>
-
-> 以上只是常用的一些，技能树还在持续点亮中。
 
 ## 时间线
 
@@ -57,34 +56,37 @@ comments: false
     <div class="timeline-dot"></div>
     <div class="timeline-content">
       <span class="timeline-date">2026</span>
-      <h3>开始写个人博客</h3>
-      <p>搭起了这个小站，决定把想法认真地记录下来。</p>
+      <h3>4link / HammrEnhance / Hooked</h3>
+      <p>做了几个自己会玩的东西：一个重力四子棋、一个铁砧强化插件、一个海上捞漂浮物的插件。</p>
     </div>
   </div>
   <div class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
       <span class="timeline-date">2024</span>
-      <h3>持续折腾各种小项目</h3>
-      <p>在工作和业余时间里写了不少代码，也踩了不少坑。</p>
+      <h3>第一版个人网站</h3>
+      <p>用模板搭了一个白色为主、橙色点缀的站点。现在换成了 Hexo，内容也搬过来了。</p>
     </div>
   </div>
   <div class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
-      <span class="timeline-date">更早</span>
-      <h3>第一次写下 Hello World</h3>
-      <p>从此走上了一条不断学习和折腾的路。</p>
+      <span class="timeline-date">2023</span>
+      <h3>开始把项目放到 GitHub</h3>
+      <p>从 Minecraft 插件开始，慢慢把写过的代码都整理到公开仓库里。</p>
     </div>
   </div>
 </div>
 
-## 联系我
+## 联系
 
-如果想交流、合作，或者只是打个招呼，欢迎通过下面的方式找到我：
+- GitHub：[AdLambXD](https://github.com/AdLambXD)
+- 邮箱：[AdLamb114514@outlook.com](mailto:AdLamb114514@outlook.com)
+- Bilibili：[3494372188359326](https://space.bilibili.com/3494372188359326)
+- Steam：[AdLambXD](https://steamcommunity.com/id/AdLambXD/)
+- QQ：[点这里](https://qm.qq.com/q/UdrgXNv7yK)
+- 网易云：[8658571437](https://music.163.com/#/user/home?id=8658571437)
 
-- **GitHub**：[github.com/adlambxd](https://github.com/adlambxd)
-- **邮箱**：your-email@example.com
-- **评论区**：在任意文章下留言也可以
-
-<div class="about-note">📮 邮箱和社交链接可以在 <code>_config.butterfly.yml</code> 与本站页面中替换成你自己的。</div>
+<div class="about-note">
+  这个站用 Hexo + Butterfly 搭的，源码在 <a href="https://github.com/AdLambXD/AdLambXD.github.io" target="_blank" rel="noopener">AdLambXD/AdLambXD.github.io</a>。想改内容的话，直接改 Markdown 就行。
+</div>
