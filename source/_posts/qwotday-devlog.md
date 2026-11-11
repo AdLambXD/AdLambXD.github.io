@@ -111,3 +111,7 @@ const cardOk =
 仓库在这里，MIT 协议，想改成自己的模板、换分类或者换时间都可以：
 
 <https://github.com/AdLambXD/QWotDay>
+
+以及自动发送每日一言的QQ空间账户huh
+
+<https://user.qzone.qq.com/2707908134/main>
