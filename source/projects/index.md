@@ -81,11 +81,12 @@ comments: false
   </div>
 
   <div class="project-card" id="qwotday">
-    <span class="project-index">08 / OLD</span>
+    <span class="project-index">08 / AUTOMATION</span>
     <h3>QWotDay</h3>
-    <p>在 QQ 空间发“每日一言”的小机器人。写了一半，后来停更了，留在这里当个记录。</p>
-    <div class="project-meta">JavaScript · 已停更</div>
+    <p>每天早 7:17 自动把 hitokoto 的「每日一言」发到 QQ 空间。GitHub Actions 定时跑，发布后回读校验，成功与否都留记录。</p>
+    <div class="project-meta">Node.js · GitHub Actions</div>
     <div class="project-links">
+      <a href="/2026/11/11/qwotday-devlog/">开发日志</a>
       <a href="https://github.com/AdLambXD/QWotDay" target="_blank" rel="noopener">源码</a>
     </div>
   </div>
